@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Хөвсгөл Политехник Коллеж</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #222;
+    background: #fff;
+}
+
+header {
+    background: white;
+}
+
+.top-header {
+    min-height: 100px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.school-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+.school-info h2,
+.school-info h1 {
+    color: #174d8c;
+}
+
+.school-info h2 {
+    font-size: 14px;
+}
+
+.school-info h1 {
+    font-size: 21px;
+}
+
+.contact {
+    color: #777;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: right;
+}
+
+nav {
+    background: #064a91;
+}
+
+.nav-container {
+    max-width: 1200px;
+    min-height: 48px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.nav-container a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 17px 0;
+}
+
+.nav-container a:hover,
+.nav-container a.active {
+    color: #ffd000;
+}
+
+/* Нүүр хуудасны зураг */
+.hero {
+    min-height: 460px;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.75),
+        rgba(0,0,0,.15)),
+        url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1600&q=80")
+        center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.hero-content h1 {
+    font-size: 45px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.hero-button,
+.register-button {
+    display: inline-block;
+    padding: 14px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.hero-button {
+    background: #ffd000;
+    color: #111;
+}
+
+.hero-button:hover {
+    background: white;
+}
+
+/* Ерөнхий хэсгүүд */
+.intro {
+    max-width: 1000px;
+    margin: auto;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.intro h2,
+.section-title h2,
+.register-title {
+    color: #064a91;
+}
+
+.intro h2,
+.section-title h2 {
+    font-size: 30px;
+}
+
+.yellow-line {
+    width: 50px;
+    height: 4px;
+    background: #ffd000;
+    margin: 15px auto 30px;
+}
+
+.intro p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+.register-button {
+    margin-top: 20px;
+    background: #064a91;
+    color: white;
+}
+
+.register-button:hover {
+    background: #ffd000;
+    color: #111;
+}
+
+.specialities {
+    background: #f5f7fa;
+    padding: 70px 20px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cards {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.speciality-card {
+    background: white;
+    padding: 30px 20px;
+    text-align: center;
+    min-height: 220px;
+    border-bottom: 3px solid #064a91;
+    transition: .3s;
+}
+
+.speciality-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+}
+
+.icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.speciality-card h3 {
+    color: #064a91;
+    margin-bottom: 12px;
+}
+
+.speciality-card p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Элсэлтийн бүртгэл */
+.register-section {
+    display: none;
+    min-height: 700px;
+    padding: 60px 20px;
+    background: #f4f6f9;
+}
+
+.register-box {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.1);
+}
+
+.register-title {
+    text-align: center;
+    font-size: 30px;
+}
+
+.description {
+    text-align: center;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group > label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input:not([type="radio"]),
+.form-group select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #064a91;
+}
+
+.gender {
+    display: flex;
+    gap: 30px;
+}
+
+.gender label {
+    font-weight: normal;
+}
+
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    background: #064a91;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: #ffd000;
+    color: #111;
+}
+
+.back-button {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #064a91;
+    text-decoration: none;
+}
+
+/* Доод хэсэг */
+footer {
+    background: #064a91;
+    color: white;
+    padding-top: 40px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 20px 35px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.footer-content h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.footer-content p {
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.copyright {
+    text-align: center;
+    background: #043d78;
+    padding: 15px;
+    font-size: 12px;
+}
+
+/* Гар утсанд тохируулах */
+@media(max-width: 900px) {
+    .contact {
+        display: none;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+    }
+}
+
+@media(max-width: 600px) {
+    .top-header {
+        min-height: 80px;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+        font-size: 23px;
+    }
+
+    .school-info h2 {
+        font-size: 10px;
+    }
+
+    .school-info h1 {
+        font-size: 14px;
+    }
+
+    .nav-container {
+        gap: 18px;
+    }
+
+    .nav-container a {
+        font-size: 10px;
+    }
+
+    .hero {
+        min-height: 350px;
+    }
+
+    .hero-content h1 {
+        font-size: 27px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .register-box {
+        padding: 25px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="top-header">
+        <div class="school-info">
+            <div class="logo">🎓</div>
+            <div>
+                <h2>ХӨВСГӨЛ АЙМАГ ДАХЬ</h2>
+                <h1>ПОЛИТЕХНИК КОЛЛЕЖ</h1>
+            </div>
+        </div>
+
+        <div class="contact">
+            ☎ +976-99382221, 86922244<br>
+            ✉ polytechniccollege.kh@gmail.com
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="active" data-page="home">⌂ НҮҮР</a>
+            <a href="#about" data-page="home">БИДНИЙ ТУХАЙ</a>
+            <a href="#specialities" data-page="home">МЭРГЭЖЛҮҮД</a>
+            <a href="#register" data-page="register">ЭЛСЭЛТ</a>
+        </div>
+    </nav>
+</header>
+
+<main id="home-page">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                2026-2027 ОНЫ<br>
+                ХИЧЭЭЛИЙН ЖИЛИЙН<br>
+                ЭЛСЭЛТ
+            </h1>
+            <p>АЖИЛСАГ ХҮН АМЖИЛТАНД ХҮРНЭ.</p>
+            <a href="#register" class="hero-button">ЭЛСЭЛТИЙН БҮРТГЭЛ</a>
+        </div>
+    </section>
+
+    <section class="intro" id="about">
+        <h2>ЭЛСЭЛТ</h2>
+        <div class="yellow-line"></div>
+        <p>Хөвсгөл аймаг дахь Политехник коллежийн 2026-2027 оны хичээлийн жилийн элсэлт эхэллээ.</p>
+        <p>Доорх товчийг дарж элсэлтийн маягтыг бөглөнө үү.</p>
+        <a href="#register" class="register-button">БҮРТГҮҮЛЭХ →</a>
+    </section>
+
+    <section class="specialities" id="specialities">
+        <div class="section-title">
+            <h2>МЭРГЭЖЛИЙН ЧИГЛЭЛҮҮД</h2>
+            <div class="yellow-line"></div>
+        </div>
+
+        <div class="cards">
+            <div class="speciality-card">
+                <div class="icon">💻</div>
+                <h3>Мэдээллийн технологи</h3>
+                <p>Программ хангамж, мэдээллийн технологийн чиглэл.</p>
+            </div>
+
+            <div class="speciality-card">
+                <div class="icon">⚙️</div>
+                <h3>Механик</h3>
+                <p>Машин механизм болон техникийн чиглэл.</p>
+            </div>
+
+            <div class="speciality-card">
+                <div class="icon">👨‍🍳</div>
+                <h3>Тогооч</h3>
+                <p>Хоол үйлдвэрлэл, үйлчилгээний мэргэжил.</p>
+            </div>
+
+            <div class="speciality-card">
+                <div class="icon">🏗️</div>
+                <h3>Барилга</h3>
+                <p>Барилгын техник болон үйлдвэрлэлийн чиглэл.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<section class="register-section" id="register-page">
+    <div class="register-box">
+        <h1 class="register-title">ЭЛСЭЛТИЙН БҮРТГЭЛ</h1>
+        <div class="yellow-line"></div>
+
+        <p class="description">
+            2026-2027 оны хичээлийн жилийн элсэлтийн
+            бүртгэлийн маягтыг бөглөнө үү.
+        </p>
+
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="fullname">Овог, нэр *</label>
+                <input id="fullname" name="fullname" type="text"
+                       placeholder="Овог нэрээ оруулна уу" required>
+            </div>
+
+            <div class="form-group">
+                <label for="register-number">Регистрийн дугаар *</label>
+                <input id="register-number" name="registerNumber"
+                       type="text" maxlength="10"
+                       placeholder="Регистрийн дугаар" required>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">Төрсөн огноо *</label>
+                <input id="birthdate" name="birthdate" type="date" required>
+            </div>
+
+            <div class="form-group">
+                <label>Хүйс *</label>
+                <div class="gender">
+                    <label><input type="radio" name="gender" value="Эрэгтэй" required> Эрэгтэй</label>
+                    <label><input type="radio" name="gender" value="Эмэгтэй"> Эмэгтэй</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Утасны дугаар *</label>
+                <input id="phone" name="phone" type="tel"
+                       placeholder="Жишээ: 99112233"
+                       pattern="[0-9]{8}" maxlength="8" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">И-мэйл</label>
+                <input id="email" name="email" type="email"
+                       placeholder="example@gmail.com">
+            </div>
+
+            <div class="form-group">
+                <label for="profession">Сонгох мэргэжил *</label>
+                <select id="profession" name="profession" required>
+                    <option value="">-- Мэргэжлээ сонгоно уу --</option>
+                    <option>Мэдээллийн технологи</option>
+                    <option>Механик</option>
+                    <option>Тогооч</option>
+                    <option>Барилга</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="school">Төгссөн сургууль *</label>
+                <input id="school" name="school" type="text"
+                       placeholder="Төгссөн сургуулийн нэр" required>
+            </div>
+
+            <button type="submit" class="submit-button">БҮРТГҮҮЛЭХ</button>
+        </form>
+
+        <a href="#home" class="back-button">← Нүүр хуудас руу буцах</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>ХӨВСГӨЛ АЙМАГ ДАХЬ</h3>
+            <h3>ПОЛИТЕХНИК КОЛЛЕЖ</h3>
+        </div>
+
+        <div>
+            <p>☎ +976-99382221, 86922244</p>
+            <p>✉ polytechniccollege.kh@gmail.com</p>
+        </div>
+
+        <div>
+            <p>📍 Хөвсгөл аймаг, Мөрөн сум</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © 2026 Хөвсгөл Политехник Коллеж
+    </div>
+</footer>
+
+<script>
+const homePage = document.getElementById("home-page");
+const registerPage = document.getElementById("register-page");
+const navLinks = document.querySelectorAll(".nav-container a");
+
+function showPage() {
+    const isRegister = location.hash === "#register";
+
+    homePage.style.display = isRegister ? "none" : "block";
+    registerPage.style.display = isRegister ? "block" : "none";
+
+    navLinks.forEach(link => {
+        link.classList.toggle(
+            "active",
+            (link.dataset.page === "register" && isRegister) ||
+            (link.dataset.page === "home" && !isRegister &&
+             link.getAttribute("href") === "#")
+        );
+    });
+
+    window.scrollTo(0, 0);
+}
+
+window.addEventListener("hashchange", showPage);
+showPage();
+
+document.getElementById("registration-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    if (!this.reportValidity()) return;
+
+    alert("Маягтыг амжилттай бөглөлөө! Энэ нь зөвхөн туршилтын бүртгэл бөгөөд мэдээлэл серверт хадгалагдаагүй.");
+
+    this.reset();
+});
+</script>
+
+</body>
+</html>
